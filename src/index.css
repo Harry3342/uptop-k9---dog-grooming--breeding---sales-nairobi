@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  body {
+    font-family: 'Poppins', system-ui, sans-serif;
+    background-color: #F8F9F5;
+    color: #1F2937;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  html.dark body,
+  .dark body {
+    background-color: #0B0B0B;
+    color: #F3F4F6;
+  }
+
+  .dark,
+  html.dark {
+    --neo-green: #32C51A;
+  }
+
+  /* Use neutral matte-black surfaces throughout dark mode. */
+  .dark [class*="dark:bg-[#141712]"],
+  .dark [class*="dark:bg-[#141812]"],
+  .dark [class*="dark:bg-[#151912]"],
+  .dark [class*="dark:bg-[#1A1F18]"],
+  .dark [class*="dark:bg-[#1A2016]"],
+  .dark [class*="dark:bg-[#161A13]"],
+  .dark [class*="dark:bg-[#25301E]"],
+  .dark [class*="dark:bg-[#25301E]"],
+  .dark [class*="dark:bg-[#2C3824]"] {
+    background-color: #151515 !important;
+  }
+
+  .dark [class*="dark:from-[#141712]"],
+  .dark [class*="dark:from-[#141812]"],
+  .dark [class*="dark:from-[#1E2519]"],
+  .dark [class*="dark:from-[#1E261A]"] {
+    --tw-gradient-from: #0B0B0B var(--tw-gradient-from-position) !important;
+  }
+
+  .dark [class*="dark:via-[#161A13]"] {
+    --tw-gradient-via: #101010 var(--tw-gradient-via-position) !important;
+  }
+
+  .dark [class*="dark:to-[#141712]"],
+  .dark [class*="dark:to-[#141812]"] {
+    --tw-gradient-to: #0B0B0B var(--tw-gradient-to-position) !important;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', system-ui, sans-serif;
+  }
+
+  /* Keep interactive green accents consistent in dark mode. */
+  .dark [class*="bg-[#76A035]"],
+  .dark [class*="bg-[#82A838]"],
+  .dark [class*="bg-[#8CFF3D]"],
+  .dark [class*="bg-[#6FD52D]"],
+  .dark [class*="hover:bg-[#63892B]"]:hover,
+  .dark [class*="hover:bg-[#72962E]"]:hover,
+  .dark [class*="hover:bg-[#A5FF68]"]:hover,
+  .dark [class*="hover:bg-[#8CFF3D]"]:hover {
+    background-color: var(--neo-green) !important;
+  }
+
+  .dark [class*="text-[#76A035]"],
+  .dark [class*="text-[#5B8226]"],
+  .dark [class*="text-[#A8D368]"],
+  .dark [class*="text-[#9EC468]"],
+  .dark [class*="text-[#B8FF8A]"] {
+    color: var(--neo-green) !important;
+  }
+
+  .dark [class*="border-[#76A035]"],
+  .dark [class*="border-[#7CFF3B]"],
+  .dark [class*="border-[#4A7130]"] {
+    border-color: var(--neo-green) !important;
+  }
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes section-enter {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-transition {
+  animation: page-enter 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.page-transition section {
+  animation: section-enter 650ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.page-transition section:nth-child(2) {
+  animation-delay: 80ms;
+}
+
+.page-transition section:nth-child(3) {
+  animation-delay: 140ms;
+}
+
+.page-transition section:nth-child(n + 4) {
+  animation-delay: 200ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .page-transition,
+  .page-transition section {
+    animation: none;
+  }
+}
+
+/* Custom smooth transitions and animations */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

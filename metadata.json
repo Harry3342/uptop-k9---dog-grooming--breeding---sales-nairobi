@@ -1,0 +1,6 @@
+{
+  "name": "Uptop K9 - Dog Grooming, Breeding & Sales Nairobi",
+  "description": "Kenya's premier kennel in Umoja Estate, Nairobi for guardian & working breeds, elite dog grooming, training, health-guaranteed puppies, 3D interactive canine showcase, and Lipa na M-Pesa payments.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
